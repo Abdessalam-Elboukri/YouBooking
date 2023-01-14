@@ -13,4 +13,6 @@ public interface HotelService {
     Optional<Hotel> findById(Long id);
 
     List<Hotel> findAll();
+
+    List<Hotel> getHotelsOfOwner(String email);
 }

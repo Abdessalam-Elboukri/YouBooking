@@ -62,6 +62,10 @@ public class OwnerServiceImp implements OwnerService {
         }
     }
 
+    @Override
+    public Owner getOwnerByemail(String user) {
+        return ownerRepository.findOwnerByEmail(user);
+    }
 
 
 }

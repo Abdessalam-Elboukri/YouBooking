@@ -5,6 +5,7 @@ import com.youbooking.youbooking.Middleware.JwtAuthFilter;
 import com.youbooking.youbooking.Middleware.JwtUtils;
 import com.youbooking.youbooking.Service.AuthService;
 import com.youbooking.youbooking.Service.UserService;
+import com.youbooking.youbooking.Utils.ResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,14 +28,13 @@ public class AuthController {
     JwtUtils jwtUtils;
 
     @PostMapping
-    public ResponseEntity<String> auth(@RequestBody AuthRequest request){
+    public ResponseEntity<Object> auth(@RequestBody AuthRequest request){
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(),request.getPassword()));
         UserDetails user = userService.findByEmail(request.getEmail());
         if(user != null) {
             System.out.println(jwtUtils.generateToken(user));
-            return ResponseEntity.ok(jwtUtils.generateToken(user));
-
+            return ResponseEntity.ok(new ResponseDTO("success","token",jwtUtils.generateToken(user)));
         }else
-            return ResponseEntity.status(400).body("error");
+            return ResponseEntity.status(400).body(new ResponseDTO("bad request","user not found"));
     }
 }

@@ -1,8 +1,20 @@
-export class User{
+import { Role } from "./role.model";
 
-  fullname!: String;
-  email !: String;
-  password !: String;
-  phone!: String;
-  role!: String;
+export class User{
+  fullname : string;
+  email : string;
+  password : string;
+  phone: string;
+  role : Role;
+
+constructor(){
+    this.fullname = "";
+    this.email = "";
+    this.phone = "";
+    this.password = "";
+    this.role = new Role();
 }
+
+}
+
+

@@ -9,6 +9,8 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     private int number;
+
+    private String image_url;
     private Float price;
     private int nbrBeds;
     @Enumerated(EnumType.STRING)
@@ -32,6 +34,14 @@ public class Room {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public Float getPrice() {

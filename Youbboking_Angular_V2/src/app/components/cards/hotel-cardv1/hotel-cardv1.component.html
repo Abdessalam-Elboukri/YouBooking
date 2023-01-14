@@ -1,0 +1,45 @@
+<div class="cardv1 container py-3 position-relative mt-2 border-left" style="background-color: rgba(236, 236, 236, 0.541)">
+  <div class="ribbon" [ngClass]="
+  statStatus === 'ACTIVE' ? 'bg-success' : 'bg-danger'
+">
+      <small>{{statStatus}}</small>
+  </div>
+  <div class="card">
+    <div class="row ">
+      <div class="col-md-4">
+          <img src="../../../../assets/img/hotel2.jpg" class="w-100">
+      </div>
+      <div class="col-md-8 px-3">
+        <div class="card-block px-3">
+          <h6 class="card-title">{{statName}}</h6>
+          <small class="pb-2">Phone : {{statPhone}}</small>
+          <small class="mt-2">
+            {{statDesc}}
+          </small>
+          <div class="d-flex mt-2">
+            <div class="d-flex " style="flex-basis: 50%;">
+              <p class="text-bold">Country : </p>
+              <p>{{statCountry}}</p>
+            </div>
+            <div class="d-flex" style="flex-basis: 50%;">
+              <p class="text-bold">City : </p>
+              <p>{{statCity}}</p>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="d-flex" style="flex-basis: 50%;">
+              <p class="text-bold">Address : </p>
+              <p>{{statAddress}} </p>
+            </div>
+            <div class="d-flex" style="flex-basis: 50%;">
+              <p class="text-bold">Code Postal : </p>
+              <p>{{statCodePostal}}</p>
+            </div>
+          </div>
+          <a routerLink="/add_room/{{statId}}" class="btn btn-primary">check Rooms</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

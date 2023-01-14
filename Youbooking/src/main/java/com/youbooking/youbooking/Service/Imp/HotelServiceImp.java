@@ -27,7 +27,9 @@ public class HotelServiceImp implements HotelService {
             hotel.getOwner()==null ||
             hotel.getCity()==null ||
             hotel.getCountry()==null ||
-            hotel.getCodePostal()==null)
+            hotel.getCodePostal()==null ||
+            hotel.getImage_url()==null ||
+            hotel.getDescription()==null)
             throw new IllegalAccessException("Please fill all hotel's information");
         else {
             hotel.setStatus(Status.DEACTIVATE);
@@ -60,6 +62,11 @@ public class HotelServiceImp implements HotelService {
     @Override
     public List<Hotel> findAll() {
         return hotelRepository.findAll();
+    }
+
+    @Override
+    public List<Hotel> getHotelsOfOwner(String email) {
+        return hotelRepository.findHotelsByOwner_Email(email);
     }
 
 }

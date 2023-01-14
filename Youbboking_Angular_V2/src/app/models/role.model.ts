@@ -1,3 +1,11 @@
 export class Role {
-  roleName!:String
+  id?:number;
+  roleName:string
+
+
+  constructor() {
+    this.roleName = "";
+  }
 }
+
+

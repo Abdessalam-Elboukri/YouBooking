@@ -11,4 +11,5 @@ public interface OwnerService {
     Owner findByEmail(String email);
     Owner updateStatus(Long id) throws IllegalAccessException;
 
+    Owner getOwnerByemail(String user);
 }

@@ -1,0 +1,152 @@
+<div class="section padding-top-bottom z-bigger">
+  <div class="section z-bigger">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mt-4 mt-lg-0">
+          <div class="row d-flex">
+
+           <app-room-card class="col-lg-6 mt-4 mt-lg-0" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.4s"
+              *ngFor="let room of rooms"
+              [statId]="room.id"
+              [statHotel]="room.hotel.name"
+              [statDesc]="room.description"
+              [statPrice]="room.price"
+           ></app-room-card>
+
+          </div>
+        </div>
+        <div class="col-lg-4 order-first order-lg-last">
+          <div class="section background-dark p-4">
+            <div class="row">
+              <div class="col-12">
+                <div class="input-daterange input-group" id="flight-datepicker">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-item">
+                        <span class="fontawesome-calendar"></span>
+                        <input class="input-sm" type="text" autocomplete="off" id="start-date-1" name="start" placeholder="chech-in date" data-date-format="DD, MM d"/>
+                        <span class="date-text date-depart"></span>
+                      </div>
+                    </div>
+                    <div class="col-12 pt-4">
+                      <div class="form-item">
+                        <span class="fontawesome-calendar"></span>
+                        <input class="input-sm" type="text" autocomplete="off" id="end-date-1" name="end" placeholder="check-out date" data-date-format="DD, MM d"/>
+                        <span class="date-text date-return"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12 pt-4">
+                    <select name="adults" class="wide">
+                      <option data-display="adults">adults</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                  <div class="col-12 pt-4">
+                    <select name="children" class="wide">
+                      <option data-display="children">children</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 pt-5">
+                <h6 class="color-white mb-3">Max night price:</h6>
+                <div class="selecteurPrix">
+                  <div class="range-slider">
+                    <input class="input-range" type="range" value="100" min="1" max="500">
+                    <div class="valeurPrix">
+                      <span class="range-value"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-12 pt-5">
+                <h6 class="color-white mb-3">Services:</h6>
+                <ul class="list">
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      welcome drink
+                    </label>
+                  </li>
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      television
+                    </label>
+                  </li>
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      king beds
+                    </label>
+                  </li>
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      bike rental
+                    </label>
+                  </li>
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      no smoking
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12 col-md-6 col-lg-12 pt-5">
+                <h6 class="color-white mb-3">Extra services:</h6>
+                <ul class="list">
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      breakfast
+                    </label>
+                  </li>
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      swimming pool
+                    </label>
+                  </li>
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      car rental
+                    </label>
+                  </li>
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      sea view
+                    </label>
+                  </li>
+                  <li class="list__item">
+                    <label class="label--checkbox">
+                      <input type="checkbox" class="checkbox">
+                      laundry
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

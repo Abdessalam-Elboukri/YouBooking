@@ -32,7 +32,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         final String jwtToken;
 
         if(authHeader==null || !authHeader.startsWith("Bearer")) {
-            System.out.println("error");
+            System.out.println("errorAuth");
             filterChain.doFilter(request, response);
         }
         else{

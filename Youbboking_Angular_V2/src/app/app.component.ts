@@ -10,11 +10,7 @@ import { StorageService } from './services/storage.service';
 export class AppComponent {
   title = 'Youbboking_Angular_V2';
 
-  private role!: string;
-  isLoggedIn = false;
-  showAdminBoard = false;
-  showModeratorBoard = false;
-  username?: string;
+
 
 
   constructor(
@@ -23,17 +19,7 @@ export class AppComponent {
   ) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = this.storageService.isLoggedIn();
 
-    if (this.isLoggedIn) {
-      const user = this.storageService.getUser();
-      this.role = user.role;
-
-      this.showAdminBoard = this.role.includes('ADMIN');
-      this.showModeratorBoard = this.role.includes('OWNER');
-
-      this.username = user.username;
-    }
   }
 
   logout(): void {
@@ -41,7 +27,6 @@ export class AppComponent {
       next: res => {
         console.log(res);
         this.storageService.clean();
-
         window.location.reload();
       },
       error: err => {
