@@ -15,9 +15,7 @@ import { StorageService } from 'src/app/services/storage.service';
 export class LoginSystemComponent implements OnInit {
 
   isLoggedIn = false;
-  isLoginFailed = false;
-  errorMessage = '';
-
+  
   login:Login = new Login();
   constructor(private authservice : AuthService , private storageService : StorageService,private router:Router){}
 
@@ -46,8 +44,6 @@ export class LoginSystemComponent implements OnInit {
         }
       })}
 
-   reloadPage(): void {
-    window.location.reload();
-  }
+
 
 }

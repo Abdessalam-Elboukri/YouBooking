@@ -31,4 +31,9 @@ public class ClientServiceImp implements ClientService {
             return clientRepository.save(client);
         }
     }
+
+    @Override
+    public Client getByEmail(String user) {
+        return clientRepository.findByEmail(user);
+    }
 }

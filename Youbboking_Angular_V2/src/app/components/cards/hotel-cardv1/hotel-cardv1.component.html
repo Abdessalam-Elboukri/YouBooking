@@ -6,13 +6,14 @@
   </div>
   <div class="card">
     <div class="row ">
-      <div class="col-md-4">
-          <img src="../../../../assets/img/hotel2.jpg" class="w-100">
+      <div class="col-md-4" >
+        <img srcset="{{statImage}}" class="w-100" style="max-height: 160px;">
+          <a routerLink="/add_room/{{statId}}" class="btn btn-primary mt-3">check Rooms</a>
       </div>
       <div class="col-md-8 px-3">
         <div class="card-block px-3">
           <h6 class="card-title">{{statName}}</h6>
-          <small class="pb-2">Phone : {{statPhone}}</small>
+          <small class="pb-2">Phone : {{statPhone}}</small><br>
           <small class="mt-2">
             {{statDesc}}
           </small>
@@ -36,7 +37,6 @@
               <p>{{statCodePostal}}</p>
             </div>
           </div>
-          <a routerLink="/add_room/{{statId}}" class="btn btn-primary">check Rooms</a>
         </div>
       </div>
     </div>

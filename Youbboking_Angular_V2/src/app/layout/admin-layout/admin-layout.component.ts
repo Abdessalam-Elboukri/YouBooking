@@ -9,16 +9,14 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  isLoggedIn = false;
-
   constructor( private storageService:StorageService, private router:Router) { }
 
   ngOnInit(): void {
-    if(!this.storageService.isLoggedIn()){
-      this.isLoggedIn = false;
-      this.router.navigate(["login"]);
+    if(this.storageService.isLoggedIn()){
+        if (!(this.storageService.getAuthority() =="ADMIN")) {
+          this.router.navigate(["login"]);
+        }
     }
-    console.log(this.storageService.getUser().sub);
   }
 
 }

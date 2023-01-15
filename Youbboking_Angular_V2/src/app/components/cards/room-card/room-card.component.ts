@@ -48,4 +48,13 @@ export class RoomCardComponent implements OnInit {
     this._statId = statId === undefined ? "" : statId;
   }
 
+  private _statImage="";
+  @Input()
+  get statImage(): string{
+    return this._statImage;
+  }
+  set statImage(statImage:string){
+    this._statImage = statImage === undefined ? "" : statImage;
+  }
+
 }

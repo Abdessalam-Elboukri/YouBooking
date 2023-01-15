@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-owner-layout',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OwnerLayoutComponent implements OnInit {
 
-  constructor() { }
+
+  constructor( private storageService:StorageService, private router:Router) { }
 
   ngOnInit(): void {
+    if(this.storageService.isLoggedIn()){
+        if (!(this.storageService.getAuthority() == "OWNER")) {
+          this.router.navigate(["login"]);
+        }
+    }
   }
 
 }

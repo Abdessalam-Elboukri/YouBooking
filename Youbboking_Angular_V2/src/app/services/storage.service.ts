@@ -32,12 +32,23 @@ export class StorageService {
     return JSON.parse(atob(token.split('.')[1]))
   }
 
+
+  public getAuthority():string{
+    const authority = this.getUser().authorities[0].authority
+    return authority;
+  }
+
+
+  public getUserName():any{
+    return this.getUser().sub
+  }
+
+
   public isLoggedIn(): boolean {
     const user = localStorage.getItem(USER_KEY);
     if (user) {
       return true;
     }
-
     return false;
   }
 }

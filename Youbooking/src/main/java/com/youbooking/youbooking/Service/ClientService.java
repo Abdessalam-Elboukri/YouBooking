@@ -5,4 +5,6 @@ import com.youbooking.youbooking.Entities.Owner;
 
 public interface ClientService {
     Client save(Client client) throws IllegalAccessException;
+
+    Client getByEmail(String user);
 }

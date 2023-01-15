@@ -27,14 +27,14 @@ export class RoomService{
     return this.http.get(this.base_url+"rooms/"+hotel_id)
   }
 
-  getSelectedRoom(id_hotel:Number):Observable<any>{
-    return this.http.get(this.base_url+"hotel/"+id_hotel)
+  getSelectedRoom(id_room:Number):Observable<any>{
+    return this.http.get(this.base_url+"room-detail/"+id_room)
   }
 
-  addRoom(id_hotel:number,room:Room):Observable<any>{
+  addRoom(id_hotel:number,room:FormData):Observable<any>{
     return this.http.post(this.base_url+"hotel/add_room/"+id_hotel,room)
   }
-  
+
   updateRoom(room:Room,id:Number):Observable<any>{
     return this.http.post(this.base_url+"update_hotel/"+id,room)
   }

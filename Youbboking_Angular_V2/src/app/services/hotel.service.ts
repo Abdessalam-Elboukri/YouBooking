@@ -28,13 +28,14 @@ export class HotelService{
     return this.http.get(this.base_url+"hotel/"+id_hotel)
   }
   addHotel(hotel:FormData):Observable<any>{
-    // let headers = new HttpHeaders();
-    // headers.append('Content-Type', 'multipart/form-data');
-    // headers.append('Accept', 'application/json');
     return this.http.post(this.base_url+"add_hotel",hotel)
   }
   updateHotel(hotel:Hotel,id:Number):Observable<any>{
     return this.http.post(this.base_url+"update_hotel/"+id,hotel)
+  }
+
+  updateHotelStatus(id:Number):Observable<any>{
+    return this.http.get(this.base_url+"update_hotel/"+id)
   }
 
 }

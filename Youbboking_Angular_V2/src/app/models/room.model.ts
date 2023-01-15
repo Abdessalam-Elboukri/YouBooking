@@ -1,3 +1,4 @@
+import { FileHandler } from "./fileHandler";
 import { Hotel } from "./hotel.model";
 
 export class Room{
@@ -7,5 +8,6 @@ export class Room{
   image_url!: string;
   price !: number ;
   description !: string;
+  roomImage !: FileHandler;
   hotel !:Hotel ;
 }

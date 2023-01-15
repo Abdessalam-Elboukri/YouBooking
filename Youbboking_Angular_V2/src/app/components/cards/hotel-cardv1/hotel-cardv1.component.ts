@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HotelService } from 'src/app/services/hotel.service';
 
 @Component({
   selector: 'app-hotel-cardv1',
@@ -7,10 +8,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HotelCardv1Component implements OnInit {
 
-  constructor() { }
+  constructor( private hotelService:HotelService) { }
 
   ngOnInit(): void {
   }
+
+
+  updateStatus(id:number){
+    this.hotelService.
+  }
+
+
+
   private _statName="";
   @Input()
   get statName(): string{
@@ -90,5 +99,23 @@ export class HotelCardv1Component implements OnInit {
   }
   set statId(statId:string){
     this._statId = statId === undefined ? "" : statId;
+  }
+
+  private _statRole="";
+  @Input()
+  get statRole(): string{
+    return this._statRole;
+  }
+  set statRole(statRole:string){
+    this._statRole = statRole === undefined ? "" : statRole;
+  }
+
+  private _statImage="";
+  @Input()
+  get statImage(): string{
+    return this._statImage;
+  }
+  set statImage(statImage:string){
+    this._statImage = statImage === undefined ? "" : statImage;
   }
 }

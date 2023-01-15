@@ -4,6 +4,7 @@ import { LoginSystemComponent } from 'src/app/pages/login-system/login-system.co
 import { RegisterSystemComponent } from 'src/app/pages/register-system/register-system.component';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layout/client-layout/client-layout.component';
+import { OwnerLayoutComponent } from './layout/owner-layout/owner-layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AddHotelComponent } from './pages/hotel/add-hotel/add-hotel.component';
 import { AllHotelsComponent } from './pages/hotel/all-hotels/all-hotels.component';
@@ -20,7 +21,7 @@ const routes: Routes = [
     children:[
       {path:"" , component:HomeComponent},
       {path:"our-rooms" , component:AllRoomsComponent},
-      {path:"room-detail" , component:RoomDetailsComponent}
+      {path:"room-detail/:id" , component:RoomDetailsComponent}
 
     ]
   },
@@ -28,8 +29,17 @@ const routes: Routes = [
   {path : '',
     component : AdminLayoutComponent,
     children:[
-      {path:"add_hotel" , component:AddHotelComponent},
       {path:"all_hotels" , component:AllHotelsComponent},
+      {path:"all_rooms",component:AllRoomsComponent }
+
+    ]
+  },
+
+  {path : '',
+    component : OwnerLayoutComponent,
+    children:[
+      {path:"add_hotel" , component:AddHotelComponent},
+      {path:"your_hotels" , component:AllHotelsComponent},
       {path:"add_room/:id",component:AddRoomComponent }
 
     ]

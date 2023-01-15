@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { RoleService } from 'src/app/services/role.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-register-system',
@@ -13,7 +14,7 @@ import { RoleService } from 'src/app/services/role.service';
 export class RegisterSystemComponent implements OnInit {
   roles:any;
   user:User = new User();
-  constructor(private authservice : AuthService,private router:Router, private roleService:RoleService){}
+  constructor(private authservice : AuthService,private router:Router, private roleService:RoleService,private storageService:StorageService){}
 
   ngOnInit(): void {
     this.roleService.getRoles().subscribe((res)=>{
@@ -25,6 +26,7 @@ export class RegisterSystemComponent implements OnInit {
   userRegister(form:NgForm){
     console.log(this.user);
     this.authservice.register(this.user).subscribe((res)=>{
+      this.storageService.clean();
       this.router.navigate(["login"])
     })
   }

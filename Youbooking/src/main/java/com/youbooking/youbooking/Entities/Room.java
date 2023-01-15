@@ -10,6 +10,7 @@ public class Room {
     private Long id;
     private int number;
 
+    private String description;
     private String image_url;
     private Float price;
     private int nbrBeds;
@@ -34,6 +35,14 @@ public class Room {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getImage_url() {

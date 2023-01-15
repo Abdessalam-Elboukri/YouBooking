@@ -28,17 +28,14 @@ export class AddHotelComponent implements OnInit {
     this.email= this.storageService.getUser().sub
   }
 
-
   onFileChanged(event:any) {
     if(event.target.files){
       const file = event.target.files[0];
-
       const fileHandler : FileHandler ={
         file : file
       }
       this.hotel.hotelImage=fileHandler;
     }
-
   }
 
   prepareFormData(hotel:Hotel): FormData{
@@ -54,19 +51,18 @@ export class AddHotelComponent implements OnInit {
     formData.append('user',
                     this.email
     )
-
-    console.log(formData);
-
     return formData;
 
   }
 
   addHotel(form:NgForm){
+    if(form.valid){
     console.log("starting upload image ...")
     const hotelFormData=this.prepareFormData(this.hotel);
     this.hotelService.addHotel(hotelFormData).subscribe((res)=>{
       this.router.navigate(["all_hotels"])
     })
+  }
   }
 
 }

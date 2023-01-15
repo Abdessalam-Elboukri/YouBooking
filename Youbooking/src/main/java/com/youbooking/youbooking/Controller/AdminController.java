@@ -1,5 +1,6 @@
 package com.youbooking.youbooking.Controller;
 
+import com.youbooking.youbooking.Entities.Admin;
 import com.youbooking.youbooking.Entities.Hotel;
 import com.youbooking.youbooking.Entities.Owner;
 import com.youbooking.youbooking.Entities.Status;
@@ -39,5 +40,13 @@ public class AdminController {
     @GetMapping("/all_hotels")
     public List<Hotel> getAllHotels(){
         return hotelService.findAll();
+    }
+
+    @PostMapping("/register")
+    public Admin register(@RequestBody Admin admin) throws IllegalAccessException {
+        if(admin==null)
+            throw new IllegalAccessException("User Information's are empty");
+        else
+            return adminService.save(admin);
     }
 }

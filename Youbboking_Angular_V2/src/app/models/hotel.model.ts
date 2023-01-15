@@ -4,6 +4,7 @@ import { Room } from "./room.model";
 export class Hotel{
   id !: number;
   name : string;
+  image_url : string;
   phone : string;
   city : string;
   country : string;
@@ -16,6 +17,7 @@ export class Hotel{
 
   constructor(){
     this.name = "";
+    this.image_url=""
     this.phone = "";
     this.city = "";
     this.country = "";

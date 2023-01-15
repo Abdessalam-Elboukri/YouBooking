@@ -53,6 +53,20 @@ export class AuthService{
     return this.httpClient.post(this.base_url + 'client/register',user,httpOptions);
   }
 
+  //logout
+  // logout(): void {
+  //   this.authService.logout().subscribe({
+  //     next: res => {
+  //       console.log(res);
+  //       this.storageService.clean();
+  //       window.location.reload();
+  //     },
+  //     error: err => {
+  //       console.log(err);
+  //     }
+  //   });
+  // }
+
 
 
   //logout

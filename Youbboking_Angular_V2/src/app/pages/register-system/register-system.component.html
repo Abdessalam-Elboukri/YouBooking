@@ -91,7 +91,7 @@
               <!-- role input -->
               <div class="form-outline mb-4">
                 <select [(ngModel)]="user.role.id" id="role" name="role" class="form-control w-100" >
-                  <option selected disabled >-----</option>
+                  <!-- <option selected disabled >-----</option> -->
                     <option *ngFor="let role of roles" [value]="role.id" >
                       {{ role.roleName}}
                     </option>
