@@ -5,6 +5,7 @@ import { Login } from 'src/app/models/login.model';
 import { User } from 'src/app/models/user.model';
 import {AuthService} from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -15,9 +16,9 @@ import { StorageService } from 'src/app/services/storage.service';
 export class LoginSystemComponent implements OnInit {
 
   isLoggedIn = false;
-  
+
   login:Login = new Login();
-  constructor(private authservice : AuthService , private storageService : StorageService,private router:Router){}
+  constructor(private authservice : AuthService ,private userService:UserService, private storageService : StorageService,private router:Router){}
 
   ngOnInit(): void {
     if(this.storageService.isLoggedIn()){
@@ -27,23 +28,30 @@ export class LoginSystemComponent implements OnInit {
     }
   }
 
+  ownerStatus!:boolean;
+  message="";
+
   userLogin(){
       this.authservice.login(this.login).subscribe((res:any)=>{
-        //localStorage.setItem("token",res)
-        this.storageService.saveUser(res)
-
-        const role=this.storageService.getUser().authorities[0].authority;
-        if(role=="OWNER"){
+        const user = this.userService.getOneUser(this.login.email).
+        subscribe((result)=>{
+          if(result.role.roleName==="OWNER"){
+            if(!(result.status=='ACTIVE')){
+              this.ownerStatus=false;
+              this.message="Your Account Not Active ! Contact Admin"
+            }else{
+              this.storageService.saveUser(res)
+              this.router.navigate(["your_hotels"])
+            }
+        }
+        else if(result.roleName==="ADMIN"){
+          this.storageService.saveUser(res)
           this.router.navigate(["all_hotels"])
         }
-        else if(role=="ADMIN"){
-          this.router.navigate(["our-rooms"])
-        }
         else{
+          this.storageService.saveUser(res)
           this.router.navigate([""])
         }
-      })}
-
-
-
+      })})
+}
 }

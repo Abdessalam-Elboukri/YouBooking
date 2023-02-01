@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1212
+      POSTGRES_DB: youbooking
+  web:
+    build: .
+    image: youbooking_backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db

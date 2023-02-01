@@ -61,7 +61,7 @@ public class HotelServiceImp implements HotelService {
 
     @Override
     public List<Hotel> findAll() {
-        return hotelRepository.findAll();
+        return hotelRepository.findHotelsByOrderByIdDesc();
     }
 
     @Override

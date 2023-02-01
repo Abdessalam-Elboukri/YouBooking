@@ -32,9 +32,6 @@ export class AuthService{
       observe: 'response'
     }).pipe(map((response:HttpResponse<any>) =>{
       const body = response.body;
-      const headers = response.headers;
-      const bearerToken = headers.get('Authorization')!;
-      //this.storageService.getUser();
       return body.data;
     }))
   }
@@ -53,19 +50,7 @@ export class AuthService{
     return this.httpClient.post(this.base_url + 'client/register',user,httpOptions);
   }
 
-  //logout
-  // logout(): void {
-  //   this.authService.logout().subscribe({
-  //     next: res => {
-  //       console.log(res);
-  //       this.storageService.clean();
-  //       window.location.reload();
-  //     },
-  //     error: err => {
-  //       console.log(err);
-  //     }
-  //   });
-  // }
+
 
 
 

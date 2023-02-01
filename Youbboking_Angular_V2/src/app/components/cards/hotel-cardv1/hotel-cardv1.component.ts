@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HotelService } from 'src/app/services/hotel.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-hotel-cardv1',
@@ -8,17 +10,33 @@ import { HotelService } from 'src/app/services/hotel.service';
 })
 export class HotelCardv1Component implements OnInit {
 
-  constructor( private hotelService:HotelService) { }
+  constructor( private hotelService:HotelService , private router:Router, private storageService:StorageService) { }
 
   ngOnInit(): void {
   }
 
 
   updateStatus(id:number){
-    this.hotelService.
+    this.hotelService.updateHotelStatus(id).subscribe((rs)=>{
+      console.log('status changed');
+      this.refresh();
+    })
   }
 
 
+
+  refresh(): void {
+    window.location.reload();
+}
+
+private _statRole=this.storageService.getAuthority();
+  @Input()
+  get statRole():string{
+    return this._statRole
+  }
+  set statRole(statRole:string){
+    this._statRole = statRole === undefined ? "" : statRole;
+  }
 
   private _statName="";
   @Input()
@@ -92,22 +110,13 @@ export class HotelCardv1Component implements OnInit {
     this._statStatus = statStatus === undefined ? "" : statStatus;
   }
 
-  private _statId="";
+  private _statId=0;
   @Input()
-  get statId(): string{
+  get statId(): number{
     return this._statId;
   }
-  set statId(statId:string){
-    this._statId = statId === undefined ? "" : statId;
-  }
-
-  private _statRole="";
-  @Input()
-  get statRole(): string{
-    return this._statRole;
-  }
-  set statRole(statRole:string){
-    this._statRole = statRole === undefined ? "" : statRole;
+  set statId(statId:number){
+    this._statId = statId === undefined ? 0 : statId;
   }
 
   private _statImage="";

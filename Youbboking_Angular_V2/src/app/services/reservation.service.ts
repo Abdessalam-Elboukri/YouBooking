@@ -17,7 +17,7 @@ export class ReservationService{
   private base_url = environment.base_url;
 
   getAllResv():Observable<any>{
-    return this.http.get(this.base_url+"admin/all_reservation")
+    return this.http.get(this.base_url+"all_reservation")
   }
 
   addResv(reserve : FormData, id_room:number):Observable<any>{

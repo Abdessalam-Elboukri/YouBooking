@@ -45,22 +45,6 @@ public class OwnerServiceImp implements OwnerService {
         return null;
     }
 
-    @Override
-    public Owner updateStatus(Long id) throws IllegalAccessException {
-        Optional<Owner> owner = ownerRepository.findById(id);
-        if(owner.isEmpty())
-            throw new IllegalAccessException("Can't find this Owner");
-        else{
-            Owner owner1 = owner.get();
-            System.out.println(owner1.getEmail());
-            if (owner1.getStatus() == Status.DEACTIVATE) {
-                owner1.setStatus(Status.ACTIVE);
-            }else{
-                owner1.setStatus(Status.DEACTIVATE);
-            }
-            return ownerRepository.save(owner1);
-        }
-    }
 
     @Override
     public Owner getOwnerByemail(String user) {

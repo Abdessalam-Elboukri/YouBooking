@@ -1,5 +1,8 @@
 package com.youbooking.youbooking.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -48,11 +51,11 @@ public class Reservation {
     public void setReservationStatus(ReservationStatus reservationStatus) {
         this.reservationStatus = reservationStatus;
     }
-
+    @JsonIgnore
     public Client getClient() {
         return client;
     }
-
+    @JsonSetter
     public void setClient(Client client) {
         this.client = client;
     }

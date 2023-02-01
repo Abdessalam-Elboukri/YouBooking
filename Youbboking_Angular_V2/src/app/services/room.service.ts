@@ -24,7 +24,7 @@ export class RoomService{
   }
 
   getRommsByHotel(hotel_id:number):Observable<any>{
-    return this.http.get(this.base_url+"rooms/"+hotel_id)
+    return this.http.get(this.base_url+"all_rooms/"+hotel_id)
   }
 
   getSelectedRoom(id_room:Number):Observable<any>{

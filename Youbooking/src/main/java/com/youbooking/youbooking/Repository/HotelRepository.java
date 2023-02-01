@@ -9,5 +9,7 @@ import java.util.List;
 @Repository
 public interface HotelRepository extends JpaRepository<Hotel,Long> {
     List<Hotel> findHotelsByCityLike(String city);
-    List<Hotel> findHotelsByOwner_Email(String owner_email);
+    List<Hotel> findHotelsByOwner_Email(String email);
+
+    List<Hotel> findHotelsByOrderByIdDesc();
 }

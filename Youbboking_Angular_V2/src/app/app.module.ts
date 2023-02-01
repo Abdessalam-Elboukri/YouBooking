@@ -29,6 +29,11 @@ import { OwnerLayoutComponent } from './layout/owner-layout/owner-layout.compone
 import { OwnerSidebarComponent } from './components/sidebars/owner-sidebar/owner-sidebar.component';
 import { UpdateHotelComponent } from './pages/hotel/update-hotel/update-hotel.component';
 import { MakeReservationComponent } from './pages/reservation/make-reservation/make-reservation.component';
+import { OwnerHotelComponent } from './pages/hotel/owner-hotel/owner-hotel.component';
+import { RoomByHotelComponent } from './pages/room/room-by-hotel/room-by-hotel.component';
+import { AllUsersComponent } from './pages/all-users/all-users.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { AllReservationComponent } from './pages/reservation/all-reservation/all-reservation.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +61,12 @@ import { MakeReservationComponent } from './pages/reservation/make-reservation/m
     OwnerLayoutComponent,
     OwnerSidebarComponent,
     UpdateHotelComponent,
-    MakeReservationComponent
+    MakeReservationComponent,
+    OwnerHotelComponent,
+    RoomByHotelComponent,
+    AllUsersComponent,
+    LogoutComponent,
+    AllReservationComponent,
   ],
   imports: [
     BrowserModule,

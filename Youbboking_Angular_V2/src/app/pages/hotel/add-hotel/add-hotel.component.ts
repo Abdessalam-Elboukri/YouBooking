@@ -7,6 +7,7 @@ import { Hotel } from 'src/app/models/hotel.model';
 import { HotelService } from 'src/app/services/hotel.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-hotel',
@@ -60,7 +61,12 @@ export class AddHotelComponent implements OnInit {
     console.log("starting upload image ...")
     const hotelFormData=this.prepareFormData(this.hotel);
     this.hotelService.addHotel(hotelFormData).subscribe((res)=>{
-      this.router.navigate(["all_hotels"])
+      Swal.fire(
+        'Good job!',
+        'Hotel Added Successfully!',
+        'success'
+      )
+      this.router.navigate(["your_hotels"])
     })
   }
   }

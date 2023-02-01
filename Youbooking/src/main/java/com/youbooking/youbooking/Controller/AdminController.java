@@ -27,15 +27,8 @@ public class AdminController {
     @Autowired
     HotelService hotelService;
 
-    @GetMapping("/owner_status/{id}")
-    public Owner updateOwnerStatus(@PathVariable Long id) throws IllegalAccessException {
-        return ownerService.updateStatus(id);
-    }
 
-    @GetMapping("/hotel_status/{id}")
-    public Hotel updateHotelStatus(@PathVariable Long id) throws IllegalAccessException {
-        return hotelService.updateStatus(id);
-    }
+
 
     @GetMapping("/all_hotels")
     public List<Hotel> getAllHotels(){

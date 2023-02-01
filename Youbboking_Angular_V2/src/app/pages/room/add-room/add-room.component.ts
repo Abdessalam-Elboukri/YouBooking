@@ -15,7 +15,7 @@ export class AddRoomComponent implements OnInit {
   room :Room
   id_hotel!:number
 
-  constructor(private roomService:RoomService, private activateRoute:ActivatedRoute) {
+  constructor(private roomService:RoomService, private activateRoute:ActivatedRoute, private router:Router) {
     this.room=new Room();
   }
 
@@ -37,13 +37,10 @@ export class AddRoomComponent implements OnInit {
 
     formData.append('roomData',
                     new Blob([JSON.stringify(room)],{type:'application/json'}));
-
     formData.append('image',
                     room.roomImage.file,
                     room.roomImage.file.name);
-
     return formData;
-
   }
 
   addRoom(form : NgForm){
@@ -52,7 +49,7 @@ export class AddRoomComponent implements OnInit {
       const hotelFormData=this.prepareFormData(this.room);
     this.id_hotel=this.activateRoute.snapshot.params['id']
     this.roomService.addRoom(this.id_hotel,hotelFormData).subscribe((res)=>{
-
+      this.router.navigate(["your_hotels"])
     })
   }
   }

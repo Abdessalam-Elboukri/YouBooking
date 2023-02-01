@@ -18,7 +18,7 @@ public class RoomController {
     RoomService roomService;
 
 
-    @GetMapping("all_rooms/{id_hotel}")
+    @GetMapping("/all_rooms/{id_hotel}")
     public List<Room> getRoomsByHotel(@PathVariable Long id_hotel){
         return roomService.getRoomsByHotel(id_hotel);
     }

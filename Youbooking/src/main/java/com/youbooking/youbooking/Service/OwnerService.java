@@ -9,7 +9,7 @@ public interface OwnerService {
     Owner save(Owner owner) throws IllegalAccessException;
     Optional<Owner> findById(Long id);
     Owner findByEmail(String email);
-    Owner updateStatus(Long id) throws IllegalAccessException;
+
 
     Owner getOwnerByemail(String user);
 }

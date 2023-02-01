@@ -37,7 +37,7 @@ public class ClientController {
     }
 
     @PostMapping("/reservation")
-    public Reservation reservation(@RequestBody Reservation reservation){
-        return reservationService.makeReservation();
+    public Reservation reservation(@RequestBody Reservation reservation) throws IllegalAccessException {
+        return reservationService.save(reservation);
     }
 }

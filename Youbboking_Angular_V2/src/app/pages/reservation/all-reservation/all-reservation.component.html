@@ -1,0 +1,44 @@
+
+<style>
+  td,th{
+    font-size: 12px;
+  }
+
+  .status{
+    font-weight: bold;
+    border-radius: 25px;
+  }
+</style>
+<!--Table-->
+<table class="table table-hover table-fixed">
+
+  <!--Table head-->
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>check in</th>
+      <th>check out</th>
+      <th>client</th>
+      <th>room</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <!--Table head-->
+
+  <!--Table body-->
+  <tbody>
+    <tr *ngFor="let res of reservations">
+      <td></td>
+      <td>{{res.startDate}}</td>
+      <td>{{res.endDate}}</td>
+      <td>{{res.client}}</td>
+      <td>{{res.room.number}}</td>
+      <td><small class="status p-1 text-white"  [ngClass]="res.reservationStatus === 'ACCEPTED' ? 'bg-success' : 'bg-danger'">
+        {{res.reservationStatus}}
+      </small></td>
+      <td style="cursor:pointer ;" ><small  class="fa fa-edit ">
+      </small></td>
+    </tr>
+
+
+</table>

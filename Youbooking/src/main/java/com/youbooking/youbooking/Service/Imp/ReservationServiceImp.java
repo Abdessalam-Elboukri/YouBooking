@@ -7,6 +7,8 @@ import com.youbooking.youbooking.Service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReservationServiceImp implements ReservationService {
 
@@ -27,5 +29,10 @@ public class ReservationServiceImp implements ReservationService {
             reservation.setReservationStatus(ReservationStatus.PENDING);
             return reservationRepository.save(reservation);
         }
+    }
+
+    @Override
+    public List<Reservation> getAll() {
+        return reservationRepository.findAll();
     }
 }

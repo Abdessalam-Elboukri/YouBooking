@@ -18,6 +18,7 @@ export class RegisterSystemComponent implements OnInit {
 
   ngOnInit(): void {
     this.roleService.getRoles().subscribe((res)=>{
+      console.log(res)
       this.roles = res;
     })
   }

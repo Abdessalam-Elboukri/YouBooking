@@ -5,22 +5,15 @@
         <img src="assets/img/logo.png" alt="">
       </div>
     </a>
-    <ul>
+    <ul class="d-flex align-items-center" >
       <li>
         <a class="curent-page" href="#" >home</a>
-        <ul>
-          <li><a href="index.html">Flip Slider</a></li>
-          <li><a class="curent-page" href="index-1.html">Video Background</a></li>
-          <li><a href="index-2.html">Moving Image</a></li>
-        </ul>
       </li>
       <li>
         <a href="/our-rooms" >rooms</a>
-
       </li>
       <li>
         <a href="/our-hotels" >Hotels</a>
-
       </li>
       <li>
         <a href="about.html">about us</a>
@@ -29,10 +22,13 @@
         <a href="blog.html">news</a>
       </li>
       <li>
-        <a href="contact.html">contact</a>
-      </li>
-      <li>
         <a href="search.html"><span>book now</span></a>
+      </li>
+      <li *ngIf="status==true">
+        <app-logout></app-logout>
+      </li>
+      <li *ngIf="status==false">
+        <a href="login">Login</a>
       </li>
     </ul>
   </div>

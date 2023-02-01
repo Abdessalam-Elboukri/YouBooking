@@ -17,7 +17,7 @@ export class RoomDetailsComponent implements OnInit {
 
   room_id!:number;
   room:any;
-  reservation!: Reservation;
+  reservation: Reservation;
   errorStatus=false;
 
   constructor(private roomService:RoomService,private reservationService:ReservationService, private activateRoute:ActivatedRoute, private storageService:StorageService) {
@@ -31,15 +31,15 @@ export class RoomDetailsComponent implements OnInit {
       this.room=res
     })
 
-    if(this.storageService.isLoggedIn() && this.storageService.getAuthority()=="CLIENT"){
+    // if(this.storageService.isLoggedIn() && this.storageService.getAuthority()=="CLIENT"){
 
-    }
+    // }
   }
 
   prepareFormData(reserve:Reservation): FormData{
     const formData = new FormData();
     formData.append('reserveData',
-                    new Blob([JSON.stringify(this.reservation)],{type:'application/json'}));
+                    new Blob([JSON.stringify(reserve)],{type:'application/json'}));
     formData.append('user',
                     this.storageService.getUserName() )
     return formData;
@@ -53,7 +53,11 @@ export class RoomDetailsComponent implements OnInit {
     }else{
       this.room_id=this.activateRoute.snapshot.params['id']
       const reserveFormData=this.prepareFormData(this.reservation);
+      console.log(this.prepareFormData(this.reservation));
+
       this.reservationService.addResv(reserveFormData,this.room_id).subscribe((res)=>{
+        console.log(res);
+
         console.log('successfuly reserved')
       })
 

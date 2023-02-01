@@ -21,8 +21,8 @@ export class HotelService{
   getAllAprovedHotels():Observable<any>{
     return this.http.get(this.base_url+"approved_hotels")
   }
-  getHotelsByOwner():Observable<any>{
-    return this.http.get(this.base_url+"hotels/owner_id")
+  getHotelsByOwner(user:String):Observable<any>{
+    return this.http.get(this.base_url+"your-Hotels/"+user)
   }
   getSelectedHotel(id_hotel:Number):Observable<any>{
     return this.http.get(this.base_url+"hotel/"+id_hotel)
@@ -35,7 +35,7 @@ export class HotelService{
   }
 
   updateHotelStatus(id:Number):Observable<any>{
-    return this.http.get(this.base_url+"update_hotel/"+id)
+    return this.http.get(this.base_url+"hotel_status/"+id)
   }
 
 }

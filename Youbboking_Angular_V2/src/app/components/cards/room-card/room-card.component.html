@@ -8,16 +8,14 @@
       <i class="fa fa-star"></i>
       <i class="fa fa-star-o"></i>
     </div>
-    <img srcset="{{statImage}}" alt="">
+    <img srcset="{{statImage}}" alt="" style="max-height:170px;">
     <div class="room-box-in">
       <h6 class="">{{statHotel}} <small class="" style="font-size: 10px ;">(hotel'room)</small></h6>
-      <small class="mt-4">Sed ut perspiciatis unde omnis, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et.</small>
+      <small class="mt-4">Sed ut perspiciatis unde omnis, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et.</small><br>
       <a class="mt-2 btn btn-primary" href="rooms-gallery.html">book from {{statPrice}} $</a>
       <div class="room-icons mt-3 pt-4">
-        <img src="../../../../assets/img/4.svg" alt="">
-        <img src="../../../../assets/img/2.svg" alt="">
-        <img src="../../../../assets/img/6.svg" alt="">
-        <a routerLink="/room-detail/{{statId}}">full info</a>
+
+        <a routerLink="/room-detail/{{statId}}" class="p1">full info</a>
       </div>
     </div>
   </div>

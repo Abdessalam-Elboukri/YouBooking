@@ -1,14 +1,20 @@
 <div class="cardv1 container py-3 position-relative mt-2 border-left" style="background-color: rgba(236, 236, 236, 0.541)">
-  <div class="ribbon" [ngClass]="
-  statStatus === 'ACTIVE' ? 'bg-success' : 'bg-danger'
-">
+  <div class="ribbon" [ngClass]="statStatus === 'ACTIVE' ? 'bg-success' : 'bg-danger'" *ngIf="statRole=='ADMIN'">
       <small>{{statStatus}}</small>
   </div>
   <div class="card">
     <div class="row ">
       <div class="col-md-4" >
-        <img srcset="{{statImage}}" class="w-100" style="max-height: 160px;">
-          <a routerLink="/add_room/{{statId}}" class="btn btn-primary mt-3">check Rooms</a>
+        <img srcset="{{statImage}}" class="w-100" style="max-height: 165px;">
+        <div class="d-flex align-items-center flex-wrap" style="align-items: center;gap:5px">
+          <a routerLink="/add_room/{{statId}}" *ngIf="statRole=='OWNER'" class="btn btn-primary mt-3">Add Rooms</a>
+          <a routerLink="/rooms/{{statId}}" *ngIf="statRole=='OWNER'"   class="btn btn-primary mt-3">Check Rooms</a>
+          <a routerLink="/roomsof_hotel/{{statId}}" *ngIf="statRole=='ADMIN'"   class="btn btn-primary mt-3">Check Rooms</a>
+          <small *ngIf="statRole=='OWNER'" class="btn btn-primary mt-3">{{statStatus}}</small>
+          <button *ngIf="statRole=='ADMIN'"  (click)="updateStatus(statId)" class="btn btn-primary  text-white outline-none mt-3" > Change Status</button>
+
+
+        </div>
       </div>
       <div class="col-md-8 px-3">
         <div class="card-block px-3">

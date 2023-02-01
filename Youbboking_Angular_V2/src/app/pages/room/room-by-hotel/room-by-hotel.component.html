@@ -1,0 +1,12 @@
+<div class="container d-flex flex-wrap mt-5">
+  <div class="d-flex" >
+    <app-room-card class="col-lg-4 col-sm-6 mt-4 mt-lg-0" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.4s"
+        *ngFor="let room of rooms"
+        [statId]="room.id"
+        [statHotel]="room.hotel.name"
+        [statDesc]="room.description"
+        [statPrice]="room.price"
+        [statImage]="room.image_url"
+      ></app-room-card>
+  </div>
+</div>

@@ -12,8 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.print.attribute.standard.Media;
-import java.awt.*;
 import java.net.URL;
 import java.util.List;
 
@@ -38,7 +36,6 @@ public class HotelController {
             throw new IllegalAccessException("Owner Not Found !! Try to login again");
         }
         else {
-            //hotelService.save(hotel);
             String fileName = multipart.getOriginalFilename();
             System.out.println("filename: " + fileName);
             URL link = null;
@@ -54,9 +51,14 @@ public class HotelController {
         }
     }
 
-    @PostMapping("your-Hotels")
-    public List<Hotel> getHotelsByOwner(@RequestBody String email){
-        return hotelService.getHotelsOfOwner(email);
+    @GetMapping("/hotel_status/{id}")
+    public Hotel updateHotelStatus(@PathVariable Long id) throws IllegalAccessException {
+        return hotelService.updateStatus(id);
+    }
+
+    @GetMapping("/your-Hotels/{user}")
+    public List<Hotel> getHotelsByOwner(@PathVariable String user){
+        return hotelService.getHotelsOfOwner(user);
     }
 
 

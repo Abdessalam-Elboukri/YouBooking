@@ -1,5 +1,8 @@
 package com.youbooking.youbooking.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -85,10 +88,11 @@ public class Room {
         this.hotel = hotel;
     }
 
+    @JsonIgnore
     public List<Reservation> getReservationList() {
         return reservationList;
     }
-
+    @JsonSetter
     public void setReservationList(List<Reservation> reservationList) {
         this.reservationList = reservationList;
     }

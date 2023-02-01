@@ -14,6 +14,9 @@ public class ClientServiceImp implements ClientService {
     @Autowired
     ClientRepository clientRepository;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     //@Autowired
     //PasswordEncoder passwordEncoder;
 
@@ -26,7 +29,7 @@ public class ClientServiceImp implements ClientService {
             throw new IllegalAccessException("Please fill all user information");
         }
         else {
-            //client.setPassword(passwordEncoder.encode(client.getPassword()));
+            client.setPassword(passwordEncoder.encode(client.getPassword()));
             client.setStatus(Status.ACTIVE);
             return clientRepository.save(client);
         }

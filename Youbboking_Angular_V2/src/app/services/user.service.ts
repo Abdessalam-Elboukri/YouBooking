@@ -11,8 +11,21 @@ const API_URL = environment.base_url ;
 export class UserService{
 
   constructor(private http: HttpClient) {}
+  private base_url = environment.base_url;
 
+  getAllUsers():Observable<any>{
+    return this.http.get(this.base_url+"all_users")
+  }
   
+  getOneUser(email:string):Observable<any>{
+    return this.http.get(this.base_url+"user/"+email)
+  }
+
+  updateStatus(id_user:number):Observable<any>{
+    return this.http.get(this.base_url+"id_user/"+id_user)
+  }
+
+
 }
 
 
